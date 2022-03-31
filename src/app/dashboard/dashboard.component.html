@@ -1,34 +1,35 @@
-<div class="d-flex row m-4">
-    <div class="col-6">
-        <h1 class="title">Soft Skills</h1>
+<div class="container-background">
+    <div class="row m-4 pt-4">
+        <div class="col-6 align-self-center">
+            <h1 class="title">Soft Skills</h1>
+        </div>
+        <div class="col-6 text-end align-self-center">
+            <a href="https://br.linkedin.com/in/cristhian-jacques-ba0a9481" target="_blank" class="btn btn-success"><i class="bi bi-share-fill"></i></a>
+        </div>
     </div>
-    <div class="col-6 text-end align-self-center">
-        <a href="https://br.linkedin.com/in/cristhian-jacques-ba0a9481" target="_blank" class="btn btn-success"><i class="bi bi-share-fill"></i></a>
-    </div>
-   
-</div>
 
 
-<div class="row justify-content-between m-4">
+    <div class="row justify-content-between m-4">
 
-    <div class="mt-3 col-lg-4 col-md-6" *ngFor="let skill of arraySkills">
-        <div class="card h-" style="height: 100%;">
-            <h5 class="card-header text-center">{{skill.title}}</h5>
-            <div class="card-body d-grid">
-                <p class="card-text">{{skill.desc}}</p>
-                <div class="d-flex row text-right align-self-end">
-                    <div class="col align-self-center">
-                        <button type="button" [disabled]="arrayLoading[skill.id]" (click)="addLike(skill.id)" class="btn btn-primary">
-                            <i *ngIf="!arrayLoading[skill.id]" class="bi bi-hand-thumbs-up-fill"></i>
-                            <div *ngIf="arrayLoading[skill.id]" class="spinner-border spinner-border-sm" role="status"></div>
-                        </button>
-                    </div>
-                    <div class="col align-self-end m-2" >
-                        <p [@btnState]="likeState[skill.id]" [@colorLike]="colorLikeState[skill.id]" class="text-like mb-0">{{arraySkills[skill.id-1]?.countLike}} {{arraySkills[skill.id-1]?.countLike > 1 ? 'likes': 'like'}}</p>
+        <div class="mt-3 col-lg-4 col-md-6" *ngFor="let skill of arraySkills">
+            <div class="card h-" style="height: 100%;">
+                <h3 class="card-header text-center"><b>{{skill.title}}</b></h3>
+                <div class="card-body d-grid">
+                    <p class="card-text">{{skill.desc}}</p>
+                    <div class="d-flex row text-right align-self-end">
+                        <div class="col align-self-center">
+                            <button type="button" [disabled]="arrayLoading[skill.id]" (click)="addLike(skill.id)" class="btn btn-primary">
+                                <i *ngIf="!arrayLoading[skill.id]" class="bi bi-hand-thumbs-up-fill"></i>
+                                <div *ngIf="arrayLoading[skill.id]" class="spinner-border spinner-border-sm" role="status"></div>
+                            </button>
+                        </div>
+                        <div class="col align-self-end m-2" >
+                            <p [@btnState]="likeState[skill.id]" [@colorLike]="colorLikeState[skill.id]" class="text-like mb-0">{{arraySkills[skill.id-1]?.countLike}} {{arraySkills[skill.id-1]?.countLike > 1 ? 'likes': 'like'}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
+    </div>
 </div>
